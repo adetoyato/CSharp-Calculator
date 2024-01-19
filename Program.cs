@@ -12,7 +12,9 @@ namespace CalculatorProgram
                 double num2 = 0;
                 double result = 0;
 
+                Console.WriteLine("=================");
                 Console.WriteLine("Simple Calculator");
+                Console.WriteLine("=================");
 
                 Console.WriteLine("Enter First Number: ");
                 num1 = Convert.ToDouble(Console.ReadLine());
