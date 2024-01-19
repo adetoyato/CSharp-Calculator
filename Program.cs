@@ -54,7 +54,7 @@ namespace CalculatorProgram
                 Console.WriteLine("Continue using the calculator? (Y = Yes, N = No): ");
             } while (Console.ReadLine().ToUpper() == "Y");
 
-            Console.WriteLine("Understood. Shutting Down...");
+            Console.WriteLine("Understood. Shutting Down... (Press Enter to Exit.)");
             Console.ReadKey();
         }
     }
