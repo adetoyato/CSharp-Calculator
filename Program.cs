@@ -16,18 +16,18 @@ namespace CalculatorProgram
                 Console.WriteLine("Simple Calculator");
                 Console.WriteLine("=================");
 
-                Console.WriteLine("Enter First Number: ");
+                Console.Write($"Enter First Number: ");
                 num1 = Convert.ToDouble(Console.ReadLine());
 
-                Console.WriteLine("Enter Second Number: ");
+                Console.Write($"Enter Second Number: ");
                 num2 = Convert.ToDouble(Console.ReadLine());
 
-                Console.WriteLine("Enter operation: ");
+                Console.WriteLine("Operations Available: ");
                 Console.WriteLine("\t+ : Addition");
                 Console.WriteLine("\t- : Subtraction");
                 Console.WriteLine("\t* : Multiplication");
                 Console.WriteLine("\t/ : Division");
-                Console.Write("Enter operator: ");
+                Console.Write($"Enter operator selected: ");
 
                 switch (Console.ReadLine())
                 {
