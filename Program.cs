@@ -26,36 +26,36 @@ namespace CalculatorProgram
                 Console.WriteLine("\t+ or 1 : Addition");
                 Console.WriteLine("\t- or 2 : Subtraction");
                 Console.WriteLine("\t* or 3 : Multiplication");
-                Console.WriteLine("\t/ or 4 : Division");
-                Console.Write($"Enter operator selected: ");
+                Console.WriteLine("\t/ or 4 : Division"); 
+                Console.Write($"Enter operator to be used: ");
 
                 switch (Console.ReadLine())
                 {
                     case "+":
                     case "1":
                         result = num1 + num2;
-                        Console.WriteLine($"Result: {num1} + {num2} = " + result);
+                        Console.WriteLine($"Sum: {num1} + {num2} = " + result);
                         break;
                     case "-":
                     case "2":
                         result = num1 - num2;
-                        Console.WriteLine($"Result: {num1} - {num2} = " + result);
+                        Console.WriteLine($"Difference: {num1} - {num2} = " + result);
                         break;
                     case "*":
                     case "3":
                         result = num1 * num2;
-                        Console.WriteLine($"Result: {num1} * {num2} = " + result);
+                        Console.WriteLine($"Product: {num1} * {num2} = " + result);
                         break;
                     case "/":
                     case "4":
                         result = num1 / num2;
-                        Console.WriteLine($"Result: {num1} / {num2} = " + result);
+                        Console.WriteLine($"Quotient: {num1} / {num2} = " + result);
                         break;
                     default:
                         Console.WriteLine("Invalid option: Operation not found.");
                         break;
                 }
-                Console.WriteLine("Continue using the calculator? (Y = Yes, N = No): ");
+                Console.Write($"Continue using the calculator? (Y = Yes, N = No): ");
             } while (Console.ReadLine().ToUpper() == "Y");
 
             Console.WriteLine("Understood. Shutting Down... (Press Any Key to Terminate Process.)");
