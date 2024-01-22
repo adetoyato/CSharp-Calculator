@@ -23,27 +23,31 @@ namespace CalculatorProgram
                 num2 = Convert.ToDouble(Console.ReadLine());
 
                 Console.WriteLine("Operations Available: ");
-                Console.WriteLine("\t+ : Addition");
-                Console.WriteLine("\t- : Subtraction");
-                Console.WriteLine("\t* : Multiplication");
-                Console.WriteLine("\t/ : Division");
+                Console.WriteLine("\t+ or 1 : Addition");
+                Console.WriteLine("\t- or 2 : Subtraction");
+                Console.WriteLine("\t* or 3 : Multiplication");
+                Console.WriteLine("\t/ or 4 : Division");
                 Console.Write($"Enter operator selected: ");
 
                 switch (Console.ReadLine())
                 {
                     case "+":
+                    case "1":
                         result = num1 + num2;
                         Console.WriteLine($"Result: {num1} + {num2} = " + result);
                         break;
                     case "-":
+                    case "2":
                         result = num1 - num2;
                         Console.WriteLine($"Result: {num1} - {num2} = " + result);
                         break;
                     case "*":
+                    case "3":
                         result = num1 * num2;
                         Console.WriteLine($"Result: {num1} * {num2} = " + result);
                         break;
                     case "/":
+                    case "4":
                         result = num1 / num2;
                         Console.WriteLine($"Result: {num1} / {num2} = " + result);
                         break;
