@@ -23,18 +23,18 @@ public static class SimpleCalculator
         double num2 = 0;
         double result = 0;
 
-        Console.Write($"Enter first number: ");
+        Console.Write($"Enter first number: "); //Asks to enter first number
         num1 = Convert.ToDouble(Console.ReadLine());
         Console.WriteLine();
         Operations operators = Operations.Addition;
 
-        Console.WriteLine("Select operator to use using arrow keys: ");
+        Console.WriteLine("Select operator to use using arrow keys: "); //Using the arrow keys, user must choose what operator to use to compute for the answer
         Console.WriteLine("Up Arrow Key: Addition (+)\nDown Arrow Key: Subtraction (-)\nLeft Arrow Key: Multiplication (*)\nRight Arrow Key: Division (/)");
         Console.WriteLine();
         ConsoleKeyInfo keyInfo;
             keyInfo = Console.ReadKey(true);
 
-            switch (keyInfo.Key)
+            switch (keyInfo.Key) //Gives the function for the arrow keys
             {
                 case ConsoleKey.UpArrow:
                     operators = Operations.Addition;
@@ -49,36 +49,36 @@ public static class SimpleCalculator
                     operators = Operations.Division;
                     break;
             }
-        Console.WriteLine($"Selected operator to be used: {operators}");
+        Console.WriteLine($"Selected operator to be used: {operators}"); //Shows what operator is to be used
         Console.WriteLine();
-        Console.Write($"Enter second number: ");
+        Console.Write($"Enter second number: "); //Asks for second number to complete computation
         num2 = Convert.ToDouble(Console.ReadLine());
         Console.WriteLine();
 
         switch (operators)
         {
-            case Operations.Addition:
+            case Operations.Addition: //Addition formula
                 result = num1 + num2;
                 Console.WriteLine($"Sum: {num1} + {num2} = {result}");
                 Console.WriteLine();
                 break;
-            case Operations.Subtraction:
+            case Operations.Subtraction: //Subtraction formula
                 result = num1 - num2;
                 Console.WriteLine($"Difference: {num1} - {num2} = {result}");
                 Console.WriteLine();
                 break;
-            case Operations.Multiplication:
+            case Operations.Multiplication: //Multiplication formula
                 result = num1 * num2;
                 Console.WriteLine($"Product: {num1} * {num2} = {result}");
                 Console.WriteLine();
                 break;
-            case Operations.Division:
+            case Operations.Division: //Division formula
                 result = num1 / num2;
                 Console.WriteLine($"Quotient: {num1} / {num2} = {result}");
                 Console.WriteLine();
                 break;
         }
-        Console.WriteLine("Would you like to continue using the calculator? Y = Yes || N = No");
+        Console.WriteLine("Would you like to continue using the calculator? Y = Yes || N = No"); //Asks if user would like to continue using calculator
         Console.WriteLine();
 
         bool inputTrue = false;
