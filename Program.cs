@@ -1,65 +1,106 @@
 ﻿using System;
 
-namespace CalculatorProgram
+public static class SimpleCalculator
 {
-    class Program
+    enum Operations
     {
-        static void Main(string[] args)
-        {
-            do
+        Addition,
+        Subtraction,
+        Multiplication,
+        Division
+    }
+
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Loading Calculator, please wait...");
+        Console.WriteLine();
+        Thread.Sleep(1000);
+        Calculator();
+    }
+    static void Calculator()
+    {
+        double num1 = 0;
+        double num2 = 0;
+        double result = 0;
+
+        Console.Write($"Enter first number: ");
+        num1 = Convert.ToDouble(Console.ReadLine());
+        Console.WriteLine();
+        Operations operators = Operations.Addition;
+
+        Console.WriteLine("Select operator to use using arrow keys: ");
+        Console.WriteLine("Up Arrow Key: Addition (+)\nDown Arrow Key: Subtraction (-)\nLeft Arrow Key: Multiplication (*)\nRight Arrow Key: Division (/)");
+        Console.WriteLine();
+        ConsoleKeyInfo keyInfo;
+            keyInfo = Console.ReadKey(true);
+
+            switch (keyInfo.Key)
             {
-                double num1 = 0;
-                double num2 = 0;
-                double result = 0;
+                case ConsoleKey.UpArrow:
+                    operators = Operations.Addition;
+                    break;
+                case ConsoleKey.DownArrow:
+                    operators = Operations.Subtraction;
+                    break;
+                case ConsoleKey.LeftArrow:
+                    operators = Operations.Multiplication;
+                    break;
+                case ConsoleKey.RightArrow:
+                    operators = Operations.Division;
+                    break;
+            }
+        Console.WriteLine($"Selected operator to be used: {operators}");
+        Console.WriteLine();
+        Console.Write($"Enter second number: ");
+        num2 = Convert.ToDouble(Console.ReadLine());
+        Console.WriteLine();
 
-                Console.WriteLine("=================");
-                Console.WriteLine("Simple Calculator");
-                Console.WriteLine("=================");
-
-                Console.Write($"Enter First Number: ");
-                num1 = Convert.ToDouble(Console.ReadLine());
-
-                Console.Write($"Enter Second Number: ");
-                num2 = Convert.ToDouble(Console.ReadLine());
-
-                Console.WriteLine("Operations Available: ");
-                Console.WriteLine("\t+ or 1 : Addition");
-                Console.WriteLine("\t- or 2 : Subtraction");
-                Console.WriteLine("\t* or 3 : Multiplication");
-                Console.WriteLine("\t/ or 4 : Division"); 
-                Console.Write($"Enter operator to be used: ");
-
-                switch (Console.ReadLine())
-                {
-                    case "+":
-                    case "1":
-                        result = num1 + num2;
-                        Console.WriteLine($"Sum: {num1} + {num2} = " + result);
-                        break;
-                    case "-":
-                    case "2":
-                        result = num1 - num2;
-                        Console.WriteLine($"Difference: {num1} - {num2} = " + result);
-                        break;
-                    case "*":
-                    case "3":
-                        result = num1 * num2;
-                        Console.WriteLine($"Product: {num1} * {num2} = " + result);
-                        break;
-                    case "/":
-                    case "4":
-                        result = num1 / num2;
-                        Console.WriteLine($"Quotient: {num1} / {num2} = " + result);
-                        break;
-                    default:
-                        Console.WriteLine("Invalid option: Operation not found.");
-                        break;
-                }
-                Console.Write($"Continue using the calculator? (Y = Yes, N = No): ");
-            } while (Console.ReadLine().ToUpper() == "Y");
-
-            Console.WriteLine("Understood. Shutting Down... (Press Any Key to Terminate Process.)");
-            Console.ReadKey();
+        switch (operators)
+        {
+            case Operations.Addition:
+                result = num1 + num2;
+                Console.WriteLine($"Sum: {num1} + {num2} = {result}");
+                Console.WriteLine();
+                break;
+            case Operations.Subtraction:
+                result = num1 - num2;
+                Console.WriteLine($"Difference: {num1} - {num2} = {result}");
+                Console.WriteLine();
+                break;
+            case Operations.Multiplication:
+                result = num1 * num2;
+                Console.WriteLine($"Product: {num1} * {num2} = {result}");
+                Console.WriteLine();
+                break;
+            case Operations.Division:
+                result = num1 / num2;
+                Console.WriteLine($"Quotient: {num1} / {num2} = {result}");
+                Console.WriteLine();
+                break;
         }
+        Console.WriteLine("Would you like to continue using the calculator? Y = Yes || N = No");
+        Console.WriteLine();
+
+        bool inputTrue = false;
+        do
+        {
+            String booleanInput = Console.ReadLine();
+            Console.WriteLine();
+
+            if (booleanInput.Equals("yes", StringComparison.OrdinalIgnoreCase) || booleanInput.Equals("y", StringComparison.OrdinalIgnoreCase))
+            {
+                Console.Clear();
+                Calculator();
+            }
+            else if (booleanInput.Equals("no", StringComparison.OrdinalIgnoreCase) || booleanInput.Equals("n", StringComparison.OrdinalIgnoreCase))
+            {
+                Console.WriteLine("Calculator Shutting Down...");
+                Environment.Exit(0);
+            }
+            else
+            {
+                Console.WriteLine("Please use only Y or N in your input.");
+            }
+        } while (!inputTrue);
     }
 }
